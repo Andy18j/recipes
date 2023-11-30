@@ -3,9 +3,12 @@ const express = require("express")
 const {connection} = require("./config/db")
 const { recipeRouter } = require("./routes/recipe.route")
 require("dotenv").config()
+const cors = require("cors")
+
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.use("/api",recipeRouter)
 
